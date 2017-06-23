@@ -1,0 +1,36 @@
+
+body{
+    background-color: #1d1c29;
+}
+input.customInput{
+    border: 0px solid gray;
+    border-radius: 20px;
+    /*padding: 10px;*/
+    background: #2b283a;
+    display: block;
+    margin-top: 8px;
+    color: #fff;
+}
+p, h1,h2,h3,h4,h5,h6{
+    color:white;
+}
+button.customInput{
+    border: 0px;
+    border-radius: 20px;
+    padding: 5px 20px;
+    background: #da285f;
+    color: #fff;
+    margin-top: 8px;
+    display: block;
+    width:100%;
+}
+
+.centerInPage{
+    position:absolute;
+    top:50%;
+    left:50%;
+    padding:15px;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}

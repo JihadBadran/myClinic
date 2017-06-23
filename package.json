@@ -11,6 +11,8 @@
     "jquery": "^3.2.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
     "readline-sync": "^1.4.6",
     "watchify": "^3.9.0"
   },
