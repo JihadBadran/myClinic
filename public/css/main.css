@@ -15,6 +15,7 @@ p, h1,h2,h3,h4,h5,h6{
     color:white;
 }
 button.customInput{
+    transition: 0.6s all;
     border: 0px;
     border-radius: 20px;
     padding: 5px 20px;
@@ -23,6 +24,11 @@ button.customInput{
     margin-top: 8px;
     display: block;
     width:100%;
+    cursor: hand;
+}
+
+button.customInput:hover{
+    background: #b7214f;
 }
 
 .centerInPage{
@@ -33,4 +39,107 @@ button.customInput{
     -ms-transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
+}
+
+.sidebar{
+    position: fixed;
+    top: 10px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: #1d1c29;
+}
+
+.sidebar ul{
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.sidebar ul li{
+    padding: 0;
+    display: block;
+
+}
+
+.sidebar ul li a{
+    transition: 0.6s all;
+    padding:10px;
+    display: block;
+    /*background: #4b69da;*/
+    color: #999;
+    text-decoration: none;
+    font-weight: bold;
+    width: 100%;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.sidebar ul li a:hover{
+    cursor: hand;
+    background: #da285f;
+    color: #fff;
+}
+.sidebar ul li a.active{
+    cursor: hand;
+    background: #da285f;
+    color: #fff;
+}
+
+.btn{
+    cursor:hand;
+}
+.mainContent{
+    background: #fff;
+    height:100%;
+    overflow: scroll;
+}
+
+.brand{
+    padding: 15px;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+    display: block;
+    width: 100%;
+}
+
+
+.avatar img{
+
+    border-radius: 50%;
+}
+
+.avatar{
+    display: block;
+    text-align: center;
+    background: #13131b;
+    padding-top: 20px;
+}
+
+.avatar .avatarName{
+    margin-top:8px !Important;
+    display: block;
+    text-align: center;
+    width:100%;
+    text-transform: capitalize;
+}
+
+.avatar .avatarSlogan{
+    display: block;
+    text-align: center;
+    width:100%;
+    text-transform: capitalize;
+}
+
+.table tbody tr{
+    transition: 0.1s all;
+}
+.table tbody tr:hover{
+    background: #da285f;
+    box-shadow: 0px 0px 20px #4b5257;
+    color:white;
 }

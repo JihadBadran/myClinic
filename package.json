@@ -14,12 +14,15 @@
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "readline-sync": "^1.4.6",
-    "watchify": "^3.9.0"
+    "watchify": "^3.9.0",
+    "webpack": "^3.0.0",
+    "webpack-dev-server": "^2.5.0"
   },
   "devDependencies": {},
   "scripts": {
-    "start": "watchify src/script.jsx -v -t [ babelify --presets [ es2015 react ] ] -o public/js/script.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server",
+    "startit":"watchify src/script.jsx -v -t [ babelify --presets [ es2015 react ] ] -o public/js/script.js"
   },
   "repository": {
     "type": "git",

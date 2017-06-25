@@ -39,16 +39,14 @@ class Login extends React.Component{
 
     constructor(props){
         super(props);
-        this.state = {username:"", password:"", loggedIn:false};
+        this.state = {username:"", password:""};
     }
 
     render(){
-        console.log("from render " + this.state.loggedIn);
-
         return (<div>
             <LoginForm  handler={this.props.handler}/>
         </div>);
     }
 }
 
-module.exports = Login;
+export default Login;

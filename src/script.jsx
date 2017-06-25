@@ -1,53 +1,48 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-var List = require("./components/List.jsx");
-var Login = require("./components/Login.jsx");
-import {Router, Route, Switch} from "react-router";
-import {BrowserRouter} from "react-router-dom"
+import LoginScreen from "./components/LoginScreen.jsx";
+import ApplicationScreen from "./components/ApplicationScreen.jsx";
 
-class Screen extends React.Component{
+import {BrowserRouter} from "react-router-dom";
+
+class App extends React.Component {
     constructor(props){
         super(props);
-        this.state = {loggedin:false};
-        this.loginHandler = this.loginHandler.bind(this);
 
+        if( this.milliToMinutes( (new Date()).getTime() - parseInt(localStorage.getItem("lastLoggedIn"))) < 5 )
+            this.state = {loggedIn:true, refresh:false};
+        else
+            this.state = {loggedIn:false, refresh:false};
+
+        this.logInHandler = this.logInHandler.bind(this);
+        this.handleRefresh = this.handleRefresh.bind(this);
     }
-    loginHandler(){
+    milliToMinutes(milli){
+        return (milli/60000);
+    }
+    logInHandler(){
         console.log(this.state.loggedIn);
-
         this.setState({loggedIn:true});
+        localStorage.setItem("lastLoggedIn", new Date().getTime());
+        console.log(localStorage.getItem("lastLoggedIn"));
     }
 
-    render(){
-        if(!this.state.loggedIn)
-            return (<div className="centerInPage col-lg-4 col-sm-6 col-md-6 col-xs-12" >
-                <Login loggedin={false} handler={this.loginHandler}/>
-            </div>)
-        else{
-            return (<div>
-                <h1>Welcome Abroad!!</h1>
-            </div>);
-        }
+    handleRefresh(){
+        this.setState({refresh:!this.state.refresh});
+        console.log(this.state.refresh);
     }
-}
+    render() {
 
-class Screen2 extends React.Component{
-    render(){
-
-        return (<div>
-            <h1>Welcome Abroad!!</h1>
-        </div>);
-
+        if(this.state.loggedIn)
+            return(<ApplicationScreen refreshHandler={this.handleRefresh}/>);
+        else
+            return(<LoginScreen handler={this.logInHandler} />);
     }
 }
-<Switch>
-    <Route exact path='/' component={Screen}/>
-    <Route path='/roster' component={Screen2}/>
-</Switch>
+// Header = withRouter(Header);
 
-ReactDOM.render(
-    <BrowserRouter>
-        <Route path="/" component={Screen}/>
-    </BrowserRouter>
-    , document.getElementById("render"));
+
+ReactDOM.render(<BrowserRouter>
+    <App />
+</BrowserRouter>, document.getElementById("render"));
