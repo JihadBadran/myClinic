@@ -4,12 +4,13 @@ header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
 // include database and object files
-include_once './connection.php';
-include_once './doctor.php';
+include_once 'connection.php';
+include_once 'doctor.php';
 
 // instantiate database and product object
 $database = new Database();
 $db = $database->getConnection();
+
 
 // initialize object
 $product = new Product($db);
@@ -43,7 +44,7 @@ if($num>0){
         array_push($products_arr["records"], $product_item);
     }
 
-    echo "\n".json_encode($products_arr)."\n";
+    echo json_encode($products_arr)."\n";
 }
 
 else{
