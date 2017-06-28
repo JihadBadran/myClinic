@@ -3,7 +3,7 @@ body{
     background-color: #1d1c29;
 }
 input.customInput{
-    border: 0px solid gray;
+    border: 0 solid gray;
     border-radius: 20px;
     /*padding: 10px;*/
     background: #2b283a;
