@@ -17,7 +17,7 @@ class ApplicationScreen extends React.Component {
 
         return (
             <div>
-                <Header refreshHandler={this.props.refreshHandler}/>
+                <Header />
                 <MainContent />
                 { this.props.children }
 

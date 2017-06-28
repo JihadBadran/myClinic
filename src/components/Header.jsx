@@ -23,7 +23,7 @@ class Header extends React.Component {
                     </div>
                     <ul className="nav flex-column">
 
-                        <li className="nav-item" onClick={this.props.refreshHandler}>
+                        <li className="nav-item" >
                             <NavLink className="nav-link" activeClassName="active" exact to={"/"}>
                                 <i className="fa fa-user-o" aria-hidden="false"/>
                                 &nbsp;Patients

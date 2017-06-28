@@ -135,11 +135,18 @@ button.customInput:hover{
     text-transform: capitalize;
 }
 
+.table thead{
+    background: #eaeaea;
+}
 .table tbody tr{
     transition: 0.1s all;
 }
+.table tbody tr{
+    color:gray;
+    font-size: 12px;
+}
 .table tbody tr:hover{
-    background: #da285f;
+    background: #f0f0f0;
     box-shadow: 0px 0px 20px #4b5257;
-    color:white;
+    color:#333;
 }

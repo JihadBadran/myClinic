@@ -4,8 +4,15 @@ import Login from "./Login.jsx";
 class LoginScreen extends React.Component {
     constructor(props) {
         super(props);
+
+        this.handleSignin = this.handleSignin.bind(this);
     }
 
+
+
+    handleSignin(){
+        
+    }
     render() {
         let style = {
             fontSize:30,
