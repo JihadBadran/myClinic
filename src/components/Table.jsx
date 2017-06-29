@@ -10,7 +10,7 @@ class Table extends React.Component {
     }
     componentWillMount(){
         this.serverRequest =
-            $.get("../api/signin.php", function (items) {
+            $.get("../api/fetchpatients.php", function (items) {
                 this.setState({items: items.records});
             }.bind(this));
 
@@ -25,17 +25,17 @@ class Table extends React.Component {
         return (
             <table className="table table-responsive">
                 <thead className="">
-                <tr>
-                    <td>#</td>
-                    <td>Name</td>
-                    <td>Age</td>
-                    <td className="hidden-xs-down">DOB</td>
-                    <td>Operations</td>
-                </tr>
+                    <tr>
+                        <td>#</td>
+                        <td>Name</td>
+                        <td>Gender</td>
+                        <td className="hidden-xs-down">Marital Status</td>
+                        <td>Operations</td>
+                    </tr>
                 </thead>
 
                 <tbody>
-                {items}
+                    {items}
                 </tbody>
             </table>);
     }

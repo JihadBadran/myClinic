@@ -1,7 +1,10 @@
 import React from "react";
 import {Route, Switch} from "react-router";
+
 import Table from "Table.jsx";
 import BreadCrumbs from "BreadCrumbs.jsx";
+
+
 class Dummy2 extends React.Component {
     render() {
         return (<div>Dummy2</div>);
