@@ -9,9 +9,12 @@ class BreadCrumbs extends React.Component {
         });
         console.log(crumbs);
         return (
-            <ol className="breadcrumb">
-                {crumbs}
-            </ol>)
+            <div>
+                <ol className="breadcrumb row" style={{borderRadius: 0}}>
+                    {crumbs}
+                </ol>
+            </div>
+        )
     }
 }
 

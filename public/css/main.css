@@ -1,6 +1,7 @@
 
 body{
     background-color: #1d1c29;
+    font-family: "Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
 }
 input.customInput{
     border: 0 solid gray;
@@ -65,28 +66,30 @@ button.customInput:hover{
 }
 
 .sidebar ul li a{
-    transition: 0.6s all;
+    transition: 0.2s all;
     padding:10px;
     display: block;
     /*background: #4b69da;*/
     color: #999;
     text-decoration: none;
-    font-weight: bold;
     width: 100%;
     font-size: 13px;
     text-transform: uppercase;
+    font-weight: lighter;
+    letter-spacing: 1px;
+
+}
+.sidebar ul li a .fa{
+    font-size: 20px;
+    margin-right: 8px;
 }
 
 .sidebar ul li a:hover{
-    cursor: hand;
-    background: #da285f;
+    cursor: pointer;
+    background: #bf2353;
     color: #fff;
 }
-.sidebar ul li a.active{
-    cursor: hand;
-    background: #da285f;
-    color: #fff;
-}
+
 
 .btn{
     cursor:hand;
@@ -147,6 +150,30 @@ button.customInput:hover{
 }
 .table tbody tr:hover{
     background: #f0f0f0;
-    box-shadow: 0px 0px 20px #4b5257;
     color:#333;
+}
+.table-header{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.alertCustom{
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 3px solid rgb(237, 21, 5);
+    border-radius: 2rem;
+    color: #f40510
+}
+
+
+.copyright-sidebar{
+    color: #6e6e6e;
+    bottom: 0;
+    position: absolute;
+    font-size: 12px;
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin-left: -15px;
+
 }

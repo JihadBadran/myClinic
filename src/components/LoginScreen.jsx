@@ -4,15 +4,8 @@ import Login from "./Login.jsx";
 class LoginScreen extends React.Component {
     constructor(props) {
         super(props);
-
-        this.handleSignin = this.handleSignin.bind(this);
     }
 
-
-
-    handleSignin(){
-        
-    }
     render() {
         let style = {
             fontSize:30,
@@ -27,8 +20,10 @@ class LoginScreen extends React.Component {
         }
         return (
             <div className="centerInPage col-lg-4 col-sm-6 col-md-6 col-xs-12">
-                <p className="text-center col-sm-12 " style={style}>myClinic</p>
-                <Login loggedin={false} handler={this.props.handler}/>
+                <title>Dashboard - {this.props.settings.app_name}</title>
+
+                <p className="text-center col-sm-12 " style={style}>{this.props.settings.app_name}</p>
+                <Login wrongCred={this.props.wrongCred} loggedin={false} handler={this.props.handler}/>
 
                 <p style={styleFooterCopy}>All rights reserved for Softpixel.ps.</p>
             </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header.jsx";
+
 import MainContent from "./MainContent.jsx";
-import {BrowserRouter, Switch, Route} from "react-router-dom";
 
 
 class ApplicationScreen extends React.Component {
@@ -17,8 +17,10 @@ class ApplicationScreen extends React.Component {
 
         return (
             <div>
-                <Header />
+                <title>Dashboard - {this.props.settings.app_name}</title>
+                <Header settings={this.props.settings}/>
                 <MainContent />
+
                 { this.props.children }
 
             </div>

@@ -6,8 +6,8 @@ class TableRow extends React.Component {
             <tr>
                 <td>{this.props.item.pid}</td>
                 <td>{this.props.item.pname}</td>
-                <td>{this.props.item.pgender}</td>
-                <td className="hidden-xs-down">{this.props.item.pms}</td>
+                <td>{this.props.item.pgender.toUpperCase()}</td>
+                <td className="hidden-xs-down">{this.props.item.pms.toUpperCase()}</td>
                 <td>
                     <button className="btn btn-sm btn-primary">Visit</button>
                     &nbsp;
