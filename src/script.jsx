@@ -44,7 +44,7 @@ class App extends React.Component {
     }
 
     render() {
-        console.log("settings is " + this.state.settings);
+        // console.log("settings is " + this.state.settings);
         if (this.state.loggedIn)
             return (<ApplicationScreen settings={this.state.settings}/>);
         else

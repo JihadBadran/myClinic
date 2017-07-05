@@ -1,13 +1,11 @@
 import React from "react";
 
-class TableRow extends React.Component {
+class DrugsTableRow extends React.Component {
     render() {
         return (
             <tr>
-                <td>{this.props.item.pid}</td>
-                <td>{this.props.item.pname}</td>
-                <td>{this.props.item.pgender.toUpperCase()}</td>
-                <td className="hidden-xs-down">{this.props.item.pms.toUpperCase()}</td>
+                <td>{this.props.item.did}</td>
+                <td>{this.props.item.dname}</td>
                 <td>
                     <button className="btn btn-sm btn-primary">Visit</button>
                     &nbsp;
@@ -17,4 +15,4 @@ class TableRow extends React.Component {
     }
 }
 
-export default TableRow;
+export default DrugsTableRow;

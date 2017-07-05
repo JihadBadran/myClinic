@@ -38,7 +38,7 @@ class Header extends React.Component {
                         </li>
 
                         <li className="nav-item" >
-                            <NavLink exact className="nav-link" to={"/profile/settings"} activeClassName="active">
+                            <NavLink exact className="nav-link" to={"/settings"} activeClassName="active">
                                 <i className="fa fa-history" aria-hidden="false"/>
                                 &nbsp;Settings</NavLink>
                         </li>

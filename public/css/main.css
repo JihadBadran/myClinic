@@ -75,7 +75,7 @@ button.customInput:hover{
     width: 100%;
     font-size: 13px;
     text-transform: uppercase;
-    font-weight: lighter;
+    font-weight: 400;
     letter-spacing: 1px;
 
 }

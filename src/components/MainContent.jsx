@@ -2,14 +2,11 @@ import React from "react";
 import {Route, Switch} from "react-router";
 
 import Patients from "./PatientsView.jsx";
+import Drugs from "./DrugsView.jsx";
 import BreadCrumbs from "./BreadCrumbs.jsx";
+import Settings from "./SettingsView.jsx";
 
 
-class Settings extends React.Component {
-    render() {
-        return (<div>Settings</div>);
-    }
-}
 class Error extends React.Component {
     render() {
         return (<div>Page Not Found!</div>);
@@ -34,8 +31,8 @@ class MainContent extends React.Component {
                 <BreadCrumbs  breadcrumbs={this.state.breadcrumbs}/>
                 <Switch>
                     <Route exact={true} path="/" component={Patients}/>
-                    <Route exact path="/drugs" component={Patients}/>
-                    <Route exact path="/profile/settings" component={Settings}/>
+                    <Route exact path="/drugs" component={Drugs}/>
+                    <Route exact path="/settings" component={Settings}/>
                     <Route path="*" component={Error}/>
                 </Switch>
 
