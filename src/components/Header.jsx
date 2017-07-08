@@ -5,7 +5,8 @@ import {BrowserRouter as Router, Link, NavLink, withRouter} from "react-router-d
 class Header extends React.Component {
     render() {
         return (<header id="sidebar">
-            <div className="sidebar col-lg-2 col-sm-3 col-xs-12 hidden-xs-down" data-toggle="collapse" data-parent="#sidebar" aria-expanded="true">
+            <div className="sidebar col-lg-2 col-sm-3 col-xs-12 hidden-xs-down" data-toggle="collapse"
+                 data-parent="#sidebar" aria-expanded="true">
                 <div className="row">
                     <div className="col-12">
                         <span className="brand">{this.props.settings.app_name}</span>
@@ -24,20 +25,21 @@ class Header extends React.Component {
 
                     <ul className="nav flex-column">
 
-                        <li className="nav-item" >
+                        <li className="nav-item">
                             <NavLink className="nav-link" activeClassName="active" exact to={"/"}>
                                 <i className="fa fa-user-o" aria-hidden="false"/>
                                 &nbsp;Patients
                             </NavLink>
                         </li>
 
-                        <li className="nav-item" >
+                        <li className="nav-item">
                             <NavLink exact className="nav-link" to={"/drugs"} activeClassName="active">
                                 <i className="fa fa-history" aria-hidden="false"/>
-                                &nbsp;Drugs</NavLink>
+                                &nbsp;Drugs
+                            </NavLink>
                         </li>
 
-                        <li className="nav-item" >
+                        <li className="nav-item">
                             <NavLink exact className="nav-link" to={"/settings"} activeClassName="active">
                                 <i className="fa fa-history" aria-hidden="false"/>
                                 &nbsp;Settings</NavLink>

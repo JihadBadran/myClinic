@@ -25,7 +25,7 @@ button.customInput{
     margin-top: 8px;
     display: block;
     width:100%;
-    cursor: hand;
+    cursor: pointer;
 }
 
 button.customInput:hover{
@@ -92,10 +92,10 @@ button.customInput:hover{
 
 
 .btn{
-    cursor:hand;
+    cursor:pointer;
 }
 .mainContent{
-    background: #fff;
+    background: #eee;
     height:100%;
     overflow: scroll;
 }
@@ -139,7 +139,10 @@ button.customInput:hover{
 }
 
 .table thead{
-    background: #eaeaea;
+    background: #f4f4f4;
+}
+.table tbody{
+    background: #fff;
 }
 .table tbody tr{
     transition: 0.1s all;
@@ -149,7 +152,7 @@ button.customInput:hover{
     font-size: 12px;
 }
 .table tbody tr:hover{
-    background: #f0f0f0;
+    background: #f6f6f6;
     color:#333;
 }
 .table-header{
@@ -176,4 +179,50 @@ button.customInput:hover{
     width: 100%;
     margin-left: -15px;
 
+}
+
+
+.bg-inverse{
+    background: #1d1c29 !important;
+}
+
+.header-title{
+
+}
+
+.box-module{
+    box-shadow: 1px 1px 2px #bbb;
+    border-radius: 5px;
+}
+
+.box-module .box-module-head{
+    background: #fff;
+    padding: 34px 56px 17px 37px;
+}
+.box-module .box-module-head h1, .box-module .box-module-head h2, .box-module .box-module-head h3{
+    font-weight: 100;
+    letter-spacing: 1.0px;
+    margin-bottom:20px;
+    color: #e12962 !important;
+}
+.upper-header{
+    background: #da285f !important;
+    height: 50px !important;
+    margin-bottom: 15px;
+}
+
+.upper-header .breadcrumb a{
+    color: #eee !important;
+    font-size: 12px !important;
+}
+.box-module-head .fa{
+    margin-right:10px !important;
+}
+.breadcrumb{
+    background: none !important;
+}
+
+.nav-item .active{
+    background: #da285f;
+    color: white;
 }

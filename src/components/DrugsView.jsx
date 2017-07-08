@@ -36,8 +36,12 @@ class Drugs extends React.Component {
         });
 
         return (
-            <div>
-                <div className="bg-inverse table-header" style={{padding:10}}>
+            <div className="box-module">
+
+                <div className="box-module-head container">
+                    <div>
+                        <h2 className="h2 text-primary">Drugs</h2>
+                    </div>
                     <button type="button" data-toggle="modal" data-target="#addDrugModal" className="btn btn-outline-success">Add Drug</button>
                 </div>
 
@@ -48,8 +52,6 @@ class Drugs extends React.Component {
                     <tr>
                         <td>#</td>
                         <td>Name</td>
-                        <td>Gender</td>
-                        <td className="hidden-xs-down">Marital Status</td>
                         <td>Operations</td>
                     </tr>
                     </thead>
