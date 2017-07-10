@@ -11,9 +11,9 @@ include_once './patient.php';
 $database = new Database();
 $db = $database->getConnection();
 
-$search = htmlspecialchars(strip_tags($_GET['cret']));
-$number = (int)$_GET['number'];
-$offset = (int)$_GET['offset'];
+$search = isset($_GET['cret']) ? htmlspecialchars(strip_tags($_GET['cret'])) : "";
+$number = isset($_GET['number']) ? (int)$_GET["number"] : 1000000;
+$offset = isset($_GET['offset']) ? (int)$_GET['offset'] : 0;
 
 $patient = new Patient($db);
 

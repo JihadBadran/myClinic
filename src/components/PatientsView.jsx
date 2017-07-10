@@ -3,32 +3,7 @@ import React from "react";
 import PatientsTableRow from "./PatientsTableRow.jsx";
 import AddPatientDialog from "./AddPatientDialog.jsx";
 import * as $ from "jquery";
-
-
-class Paginattion extends React.Component {
-    constructor(props) {
-        super(props);
-        this.onClick = this.onClick.bind(this);
-    }
-
-    onClick(e) {
-        this.props.handler(this.props.index);
-    }
-
-    render() {
-        if (this.props.acive)
-            return (
-                <li className="page-item active">
-                    <button onClick={this.onClick} className="page-link">{this.props.index}</button>
-                </li>);
-        else {
-            return (
-                <li className="page-item">
-                    <button onClick={this.onClick} className="page-link">{this.props.index}</button>
-                </li>);
-        }
-    }
-}
+import Pagination from "./Pagination.jsx";
 
 
 class Patients extends React.Component {
@@ -89,6 +64,19 @@ class Patients extends React.Component {
     }
 
     refresh() {
+        console.log("refreshing");
+        this.serverRequest =
+            $.get("../api/fetchpatients.php?cret=" + "&number=" + this.state.offset + "&offset=" + ((this.state.page - 1) * this.state.offset))
+                .done(function (items) {
+                    this.setState({items: items.records, totalCount: items.count});
+                }.bind(this))
+                .fail(function () {
+                    console.log("empty");
+                });
+    }
+
+    refresh(number) {
+        console.log("refreshing");
         this.serverRequest =
             $.get("../api/fetchpatients.php?cret=" + "&number=" + this.state.offset + "&offset=" + ((this.state.page - 1) * this.state.offset))
                 .done(function (items) {
@@ -114,6 +102,8 @@ class Patients extends React.Component {
         this.refresh();
     }
 
+
+
     render() {
 
         if (this.state.items.length > 0) {
@@ -122,14 +112,6 @@ class Patients extends React.Component {
                 return (<PatientsTableRow deleteF={this.deletePatient} itemID={item.pid} key={item.pid} item={item}/>);
             }.bind(this));
 
-
-            var pagination = [];
-            for (var j = 1; j <= Math.ceil(this.state.totalCount / this.state.offset); j++) {
-                if(j == this.state.page)
-                    pagination.push(<Paginattion index={j} handler={this.paginate} key={j} active={true}/>);
-                else
-                    pagination.push(<Paginattion index={j} handler={this.paginate} key={j} active={false}/>);
-            }
 
             return (
                 <div className="box-module">
@@ -178,13 +160,7 @@ class Patients extends React.Component {
                         {items}
                         </tbody>
                     </table>
-                    <nav aria-label="Page navigation example">
-                        <ul className="pagination">
-                            <li className="page-item"><a className="page-link" href="#">Previous</a></li>
-                            {pagination}
-                            <li className="page-item"><a className="page-link" href="#">Next</a></li>
-                        </ul>
-                    </nav>
+                    <Pagination totalPages={Math.ceil(this.state.totalCount/this.state.offset)} paginate={this.paginate} page={this.state.page}/>
                 </div>);
         }
         else {

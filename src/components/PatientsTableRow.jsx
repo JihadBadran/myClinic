@@ -22,9 +22,9 @@ class PatientsTableRow extends React.Component {
                 <td>{this.props.item.pbg}</td>
                 <td className="hidden-xs-down">{this.props.item.pms.toUpperCase()}</td>
                 <td>
-                    <button className="btn btn-sm btn-primary">Visit</button>
+                    <button className="btn btn-sm btn-outline-primary">Visit</button>
                     &nbsp;
-                    <button onClick={this.onDelete} className="btn btn-sm btn-danger">Delete</button>
+                    <button onClick={this.onDelete} className="btn btn-sm btn-outline-danger">Delete</button>
                 </td>
             </tr>);
     }

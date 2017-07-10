@@ -12,10 +12,13 @@ $database = new Database();
 $db = $database->getConnection();
 $patient = new Patient($db);
 
-$name = $_POST['name'];
-$id = $_POST['id'];
-$phone = $_POST['phone'];
-$bg = $_POST['blood'];
-$gender = $_POST['gender'];
-
-$patient->write($name,$id, $phone, $bg, $gender);
+if (!isset($_POST['name'], $_POST['id'],$_POST['blood'], $_POST['gender'])) {
+    echo 0;
+} else {
+    $name = $_POST['name'];
+    $id = $_POST['id'];
+    $phone = $_POST['phone'];
+    $bg = $_POST['blood'];
+    $gender = $_POST['gender'];
+    $patient->write($name, $id, $phone, $bg, $gender);
+}

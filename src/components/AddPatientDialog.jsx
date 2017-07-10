@@ -14,6 +14,7 @@ class AddPatientDialog extends React.Component {
         this.bgOnChange = this.bgOnChange.bind(this);
         this.genderOnChange = this.genderOnChange.bind(this);
         this.resetState = this.resetState.bind(this);
+        this.resetState = this.resetState.bind(this);
     }
 
     nameOnChange(e) {
@@ -38,10 +39,31 @@ class AddPatientDialog extends React.Component {
         this.setState({gender: select.options[select.selectedIndex].value});
     }
 
-    resetState(){
+    resetState() {
         this.setState({fullname: "", nid: "", phone: "", bg: "A+", gender: "Male"});
     }
 
+    notifyMe() {
+
+        if (("Notification" in window)) {
+            if (Notification.permission === "granted") {
+                // If it's okay let's create a notification
+                var notification = new Notification("Patient Have been Successfully Created!");
+            }
+            else if (Notification.permission !== "denied") {
+                Notification.requestPermission(function (permission) {
+                    // If the user accepts, let's create a notification
+                    if (permission === "granted") {
+                        var notification = new Notification("Patient Have been Successfully Created!");
+                    }
+                });
+            }
+        }
+    }
+
+    resetState(){
+        this.setState({fullname: "", nid: "", phone: "", bg: "A+", gender: "Male"});
+    }
 
     handleSubmit() {
         if (this.state.name !== "" && this.state.nid !== "")
@@ -54,6 +76,8 @@ class AddPatientDialog extends React.Component {
             })
                 .done(function () {
                     this.props.refresh();
+                    this.notifyMe();
+                    this.resetState();
                 }.bind(this))
                 .fail(function () {
 
