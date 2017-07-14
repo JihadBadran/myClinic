@@ -25,6 +25,8 @@ class Patients extends React.Component {
         this.render = this.render.bind(this);
         this.deletePatient = this.deletePatient.bind(this);
         this.paginate = this.paginate.bind(this);
+        this.paginateNext = this.paginateNext.bind(this);
+        this.paginatePrev = this.paginatePrev.bind(this);
     }
 
 
@@ -78,7 +80,7 @@ class Patients extends React.Component {
     refresh(number) {
         console.log("refreshing");
         this.serverRequest =
-            $.get("../api/fetchpatients.php?cret=" + "&number=" + this.state.offset + "&offset=" + ((this.state.page - 1) * this.state.offset))
+            $.get("../api/fetchpatients.php?cret=" + "&number=" + this.state.offset + "&offset=" + ((number - 1) * this.state.offset))
                 .done(function (items) {
                     this.setState({items: items.records, totalCount: items.count});
                 }.bind(this))
@@ -98,11 +100,23 @@ class Patients extends React.Component {
     }
 
     paginate(number) {
+        this.refresh(number);
         this.setState({page: number});
-        this.refresh();
     }
 
+    paginateNext() {
+        if (this.state.page + 1 <= Math.ceil(this.state.totalCount / this.state.offset)) {
+            this.refresh(this.state.page + 1);
+            this.setState({page: this.state.page + 1});
+        }
+    }
 
+    paginatePrev() {
+        if (this.state.page > 1) {
+            this.refresh(this.state.page - 1);
+            this.setState({page: this.state.page - 1});
+        }
+    }
 
     render() {
 
@@ -111,7 +125,6 @@ class Patients extends React.Component {
             var items = this.state.items.map(function (item) {
                 return (<PatientsTableRow deleteF={this.deletePatient} itemID={item.pid} key={item.pid} item={item}/>);
             }.bind(this));
-
 
             return (
                 <div className="box-module">
@@ -160,7 +173,8 @@ class Patients extends React.Component {
                         {items}
                         </tbody>
                     </table>
-                    <Pagination totalPages={Math.ceil(this.state.totalCount/this.state.offset)} paginate={this.paginate} page={this.state.page}/>
+                    <Pagination next={this.paginateNext} prev={this.paginatePrev} totalPages={Math.ceil(this.state.totalCount / this.state.offset)}
+                                paginate={this.paginate} page={this.state.page}/>
                 </div>);
         }
         else {

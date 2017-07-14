@@ -11,9 +11,11 @@ class App extends React.Component {
         super(props);
 
         this.state = {loggedIn: false, users: [], settings: [], wrongCred: false};
+
         this.logInHandler = this.logInHandler.bind(this);
         this.componentWillMount = this.componentWillMount.bind(this);
     }
+
 
 
     componentWillMount() {
@@ -21,10 +23,6 @@ class App extends React.Component {
             this.setState({settings: settings});
         }.bind(this));
 
-    }
-
-    milliToMinutes(milli) {
-        return (milli / 60000);
     }
 
     logInHandler(username, password) {

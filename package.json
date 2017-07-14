@@ -8,6 +8,7 @@
     "babel-preset-react": "^6.23.0",
     "babelify": "^7.3.0",
     "bootstrap": "^3.3.7",
+    "electron": "^1.6.11",
     "jquery": "^3.2.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
@@ -22,7 +23,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server",
-    "startit":"watchify src/script.jsx -v -t [ babelify --presets [ es2015 react ] ] -o public/js/script.js"
+    "startit": "watchify src/script.jsx -v -t [ babelify --presets [ es2015 react ] ] -o public/js/script.js"
   },
   "repository": {
     "type": "git",
